@@ -78,6 +78,7 @@ public class library
 	// 회원 메뉴 선택
 	public void MemberMenu()
 	{
+		System.out.println("");
 		System.out.println("┌────[메뉴 선택]────┐");
 		System.out.println("│1.   회원 등록     │");
 		System.out.println("│2.   회원 조회     │");
@@ -136,7 +137,6 @@ public class library
 			if (nResult == 0)
 			{
 				System.out.println(id+"는 사용 가능한 ID입니다.");
-				System.out.println("");
 				System.out.print("등록할 회원의 이름을 입력해 주세요 : ");
 				String name = sc.nextLine();
 				System.out.print("등록할 회원의 블랙리스트 여부를 입력해 주세요.");
@@ -154,7 +154,8 @@ public class library
 					int updateCount = psmt.executeUpdate();
 				if(updateCount == 1) {
 					System.out.println(name + "님의 회원가입이 정상 처리 되었습니다.");
-					System.out.println("가입을 축하드립니다:)");
+					System.out.println("환영합니다! 가입을 축하드립니다:)");
+					System.out.println("");
 				}else {
 					System.out.println("데이터 입력에 실패했습니다.(#가입오류)");
 				}
@@ -188,20 +189,17 @@ public class library
 			while(rs.next()) {
 				nResult++;
 				rs.getString("id");
-				System.out.println(rs.getString("name")+"님 환영합니다.");
-			}
-			if (nResult == 0)
-			{
-				System.out.println("이름이 잘못 입력되었거나 등록되어 있지 않은 회원입니다.");
-			}
-			
-			while(rs.next()) {
+				System.out.println(rs.getString("name")+"님의 정보를 조회합니다.");
 				System.out.println("------------------------------");
 				System.out.println("회  원  번  호 : " + rs.getInt("membernum"));
 				System.out.println("아    이    디 : " + rs.getString("id"));
 				System.out.println("이          름 : " + rs.getString("name"));
 				System.out.println("블랙리스트 여부: " + rs.getString("blackuser"));				
 				System.out.println("------------------------------");
+			}
+			if (nResult == 0)
+			{
+				System.out.println("이름이 잘못 입력되었거나 등록되어 있지 않은 회원입니다.");
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -253,6 +251,7 @@ public class library
 	// 책 관리 메뉴 선택
 	public void BookMenu()
 	{
+		System.out.println("");
 		System.out.println("┌────<메뉴 선택>────┐");
 		System.out.println("│1.    책 등록      │");
 		System.out.println("│2.   도서 조회     │");
