@@ -109,7 +109,8 @@ public class library
 				delMember();
 				break;
 			case 5:
-				System.out.println("회원 프로그램을 종료합니다. 감사합니다:) ");
+				System.out.println("회원 프로그램을 종료합니다.");
+				System.out.println();
 				return;
 			default:
 				System.out.println("잘못 입력하셨습니다.");
@@ -131,12 +132,14 @@ public class library
 			while(rs.next()) {
 				nResult++;
 				rs.getString("id");
+				System.out.println();
 				System.out.println(rs.getString("id")+"는 이미 사용중인 ID입니다.");
-				System.out.println("");
 			}
 			if (nResult == 0)
 			{
+				System.out.println();
 				System.out.println(id+"는 사용 가능한 ID입니다.");
+				System.out.println();
 				System.out.print("등록할 회원의 이름을 입력해 주세요 : ");
 				String name = sc.nextLine();
 				System.out.print("등록할 회원의 블랙리스트 여부를 입력해 주세요.");
@@ -155,7 +158,7 @@ public class library
 				if(updateCount == 1) {
 					System.out.println(name + "님의 회원가입이 정상 처리 되었습니다.");
 					System.out.println("환영합니다! 가입을 축하드립니다:)");
-					System.out.println("");
+					System.out.println();
 				}else {
 					System.out.println("데이터 입력에 실패했습니다.(#가입오류)");
 				}
@@ -282,7 +285,8 @@ public class library
 				delBook();
 				break;
 			case 5:
-				System.out.println("도서 관리 프로그램을 종료합니다. 감사합니다:) ");
+				System.out.println("도서 관리 프로그램을 종료합니다.");
+				System.out.println();
 				return;
 			default:
 				System.out.println("잘못 입력하셨습니다.");
@@ -307,6 +311,7 @@ public class library
 			psmt.setInt(2, howmany);
 			
 			psmt.executeUpdate();
+			System.out.println();
 			System.out.println(bookname + "(이)가 " + howmany +"권 추가되었습니다.");
 			
 		}
@@ -371,6 +376,7 @@ public class library
 			psmt.setString(1, bookname);
 			psmt.executeUpdate();
 			
+			System.out.println();
 			System.out.println(bookname + "(이)가 삭제되었습니다.");
 			
 		}catch(Exception e) {
